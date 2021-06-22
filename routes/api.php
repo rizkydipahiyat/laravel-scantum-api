@@ -17,11 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/products', function() {
     return Product::all();
 });
-// Route::post('/products', function() {
-//     return Product::create([
-//         'name' => 'Product 1'
-//     ]);
-// });
+Route::post('/products', function() {
+    return Product::create([
+        'name' => 'First Product',
+        'slug' => 'first-product',
+        'description' => 'This is first product',
+        'price' => '99.99'
+    ]);
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
